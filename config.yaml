@@ -1,0 +1,26 @@
+# Tiny LLaMA-style config (scaled-down LLaMA 1/2 proportions)
+#
+# LLaMA key design choices reflected here:
+#   - vocab_size 32000  (LLaMA 1 & 2 tokenizer)
+#   - d_ff = 4 × d_model
+#   - n_heads = d_model / 64  (64-dim per head)
+#   - No dropout (LLaMA uses 0)
+#
+# Full LLaMA-7B reference:
+#   vocab_size=32000, seq_len=2048, d_model=4096,
+#   n_heads=32, n_layers=32, d_ff=11008
+
+# Model
+vocab_size: 32000
+seq_len:    512
+d_model:    512
+n_heads:    8       # 64-dim per head (512 / 8)
+n_layers:   8
+d_ff:       2048    # 4 × d_model
+dropout:    0.0     # LLaMA does not use dropout
+
+# Training
+batch_size:   45     # reduced to leave spare VRAM for prefetched next batch
+num_steps:    5
+lr:           0.0003
+weight_decay: 0.1
