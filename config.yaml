@@ -20,7 +20,7 @@ d_ff:       2048    # 4 × d_model
 dropout:    0.0     # LLaMA does not use dropout
 
 # Training
-batch_size:   80     # reduced to leave spare VRAM for prefetched next batch
+batch_size:   196     # reduced to leave spare VRAM for prefetched next batch
 num_steps:    5
 lr:           0.0003
 weight_decay: 0.1
